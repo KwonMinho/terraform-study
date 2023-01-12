@@ -1,0 +1,7 @@
+*.csv
+.terraform
+*.tfstate
+*.tfstate.backup
+
+
+
