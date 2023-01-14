@@ -52,3 +52,8 @@ terraform init
 
 output: <br>
 .terrafrom.lock.hcl 파일 생성
+
+
+## 참조 사이트
+
+리소스간의 종속성에 대한 데이터 값을 그래프 형태로 보여주는 웹 사이트: http://viz-js.com/
