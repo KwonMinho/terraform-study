@@ -53,6 +53,63 @@ terraform init
 output: <br>
 .terrafrom.lock.hcl 파일 생성
 
+# 3. variable
+
+```tf
+variable "NAME"
+ [config...]
+```
+
+```tf
+# config
+description: 이 변수에 대한 설명(팀한테 공유)
+type: 유형 제약 조건 (지정하지 않아도 됨,그러나 any로 판단됨) - string, number, bool, list, map, set, object, tuple
+default: 변수에 값을 전달하는 방법은 다양함 (만약 값이 전달되지 않으면, 해당 기본 값을 사용됨)
+    - 명령줄로 보내거나(-var)
+    - 선언된 파일로 보내거나(-var-file)
+    - 환경 변수로 보내거나(TF_VAR_<variable_name>
+```
+
+```tf
+variable "list_example" {
+    description = "An example of a numeric list in Terraform"
+    type = list(number)
+    default = [1,2,3]
+}
+```
+
+```tf
+variable "object_example" {
+    description = "An example of structural - 제약조건 에러 출력"
+    type = object({
+        name = string
+        age  = number
+        tags = list(string)
+        enabled = bool
+    })
+    default = {
+        name = "n1"
+        age = 42
+        tags = ["a", "b", "c"]
+        enabled = true
+    }
+}
+```
+### 3.1 변수 참조
+
+변수 참조하는 방법
+```
+var.<VARIABLE_NAME>
+```
+
+## 4. output
+
+```
+output "<NAME>" {
+    value = <VALUE>
+    [config...]
+}
+```
 
 ## 참조 사이트
 
